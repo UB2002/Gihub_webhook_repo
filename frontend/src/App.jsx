@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Typography, Box, CircularProgress } from "@mui/material";
 import EventCard from "./components/EventCard";
-
 const API_URL = "http://127.0.0.1:5000/events/latest"; // Use your Render/ngrok URL if deployed
 
 function App() {
@@ -13,6 +12,7 @@ function App() {
   const fetchEvents = async () => {
     try {
       const res = await axios.get(API_URL);
+      console.log(res.data);
       setEvents(res.data);
       setLoading(false);
     } catch (err) {
